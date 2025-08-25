@@ -1,73 +1,124 @@
-# Welcome to your Lovable project
+# Stock Price Dashboard
 
-## Project info
+A professional stock market dashboard built with **React + TypeScript + Tailwind CSS** using Vite. The app fetches real‑time/near‑real‑time stock data from free APIs (Alpha Vantage or Finnhub) and displays it in a responsive table with optional search, sorting, charts, and error handling.
 
-**URL**: https://lovable.dev/projects/0d8c3de5-b807-4288-b381-db04291c4d25
+---
 
-## How can I edit this code?
+##  Features
 
-There are several ways of editing your application.
+**Core Requirements**
 
-**Use Lovable**
+* Fetches and displays stock data in a table: **symbol, price, change, change%**.
+* Styled with **Tailwind CSS**.
+* Responsive layout for mobile/desktop.
+* Ready to deploy on **Vercel / Netlify / GitHub Pages**.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0d8c3de5-b807-4288-b381-db04291c4d25) and start prompting.
+**Optional Enhancements**
 
-Changes made via Lovable will be committed automatically to this repo.
+* Loading state with spinner or skeleton.
+* Error handling with retry button.
+* Search & sort functionality.
+* Bonus charts (ApexCharts or Chart.js).
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+##  Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+* **React 18** + **TypeScript** (scaffolded with Vite)
+* **Tailwind CSS** for styling
+* **Alpha Vantage** / **Finnhub** for market data
+* **Chart.js** or **ApexCharts** (optional)
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+##  Folder Structure
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
+stock-dashboard/
+├─ public/
+│  ├─ favicon.ico
+│  ├─ placeholder.svg
+│  └─ robots.txt
+├─ src/
+│  ├─ components/        # UI components (StockTable, Loader, etc.)
+│  ├─ hooks/             # Custom React hooks
+│  ├─ lib/               # API helper functions
+│  ├─ pages/             # Page-level components
+│  ├─ services/          # Service layer for API calls
+│  ├─ types/             # TypeScript type definitions
+│  ├─ App.css
+│  ├─ App.tsx
+│  ├─ index.css
+│  ├─ main.tsx
+│  └─ vite-env.d.ts
+├─ .gitignore
+├─ bun.lockb / package-lock.json
+├─ components.json
+├─ eslint.config.js
+├─ index.html
+├─ package.json
+├─ postcss.config.js
+├─ README.md
+├─ tailwind.config.ts
+├─ tsconfig.app.json
+├─ tsconfig.json
+├─ tsconfig.node.json
+└─ vite.config.ts
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+##  Getting Started
+
+### 1. Prerequisites
+
+* Node.js 18+
+* npm / pnpm / yarn
+* API key from **Alpha Vantage** or **Finnhub**
+
+### 2. Clone & Install
+
+```bash
+git clone <your-repo-url> stock-dashboard
+cd stock-dashboard
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root:
+
+```bash
+# For Alpha Vantage
+VITE_ALPHA_VANTAGE_KEY=YOUR_ALPHA_VANTAGE_KEY
+
+# Or for Finnhub
+VITE_FINNHUB_KEY=YOUR_FINNHUB_KEY
+```
+
+### 4. Run Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Visit `http://localhost:5173`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 5. Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🔌 API Setup
 
-This project is built with:
+### Alpha Vantage
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```http
+GET https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_KEY
+```
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0d8c3de5-b807-4288-b381-db04291c4d25) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Response keys: `01. symbol`, `05. price`, \`09. chang
