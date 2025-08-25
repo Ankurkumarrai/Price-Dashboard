@@ -113,12 +113,3 @@ npm run preview
 
 ---
 
-## 🔌 API Setup
-
-### Alpha Vantage
-
-```http
-GET https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL&apikey=YOUR_KEY
-```
-
-Response keys: `01. symbol`, `05. price`, \`09. chang
